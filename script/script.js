@@ -28,10 +28,12 @@ function start() {
 }
 
 function run() {
-  time += 1;
-  if (time == clickTime) {
-    CONTAINER.style.backgroundColor = "green"
-    BOX.innerHTML = "Now!"
+  if (running) {
+    time += 1;
+    if (time == clickTime) {
+      CONTAINER.style.backgroundColor = "green"
+      BOX.innerHTML = "Now!"
+    }
   }
 }
 
@@ -66,6 +68,7 @@ function reset(e) {
     BOX.innerHTML = "Start!"
     SUB.innerHTML = "";
     CONTAINER.style.backgroundColor = "red";
+    CONTAINER.removeEventListener("click", react);
   }
 }
 
